@@ -67,7 +67,7 @@ function manageRow(data) {
         rows = rows + '<td>'+value.featured_quote+'</td>';
         rows = rows + '<td>'+value.type+'</td>';
         rows = rows + '<td data-id="'+value.id+'">';
-        rows = rows + '<button data-toggle="modal" data-target="#edit-item" class="btn btn-primary edit-item">Edit</button> ';
+        // rows = rows + '<button data-toggle="modal" data-target="#edit-item" class="btn btn-primary edit-item">Edit</button> ';
         rows = rows + '<button class="btn btn-danger remove-item">Delete</button>';
         rows = rows + '</td>';
 	  	rows = rows + '</tr>';
@@ -138,44 +138,53 @@ $("body").on("click",".remove-item",function(){
 });
 
 
-/* Edit Item */
-$("body").on("click",".edit-item",function(){
+// /* Edit Item */
+// $("body").on("click",".edit-item",function(){
 
-    var id = $(this).parent("td").data('id');
-    var title = $(this).parent("td").prev("td").prev("td").text();
-    var content = $(this).parent("td").prev("td").text();
+//     var id = $(this).parent("td").data('id');
+//     var title = $(this).parent("td").prev("td").prev("td").text();
+//     var content = $(this).parent("td").prev("td").text();
 
-    $("#edit-item").find("input[name='title']").val(title);
-    $("#edit-item").find("textarea[name='content']").val(content);
-    $("#edit-item").find(".edit-id").val(id);
+//     $("#edit-item").find("input[name='glimpse-date']").val();
+//     $("#edit-item").find("input[name='title']").val();
+//     $("#edit-item").find("input[name='heading']").val();
+//     $("#edit-item").find("textarea[name='content']").val();
+//     $("#edit-item").find("textarea[name='prayer-focus']").val();
+//     $("#edit-item").find("textarea[name='featured-verse']").val();
+//     $("#edit-item").find("textarea[name='featured-quote']").val();
+//     $("#edit-item").find("input[name='type']").val();
 
-});
+//     $("#edit-item").find("input[name='title']").val(title);
+//     $("#edit-item").find("textarea[name='content']").val(content);
+//     $("#edit-item").find(".edit-id").val(id);
+
+// });
 
 
-/* Updated new Item */
-$(".crud-submit-edit").click(function(e){
+// /* Updated new Item */
+// $(".crud-submit-edit").click(function(e){
 
-    e.preventDefault();
-    var form_action = $("#edit-item").find("form").attr("action");
-    var title = $("#edit-item").find("input[name='title']").val();
+//     e.preventDefault();
+//     var form_action = $("#edit-item").find("form").attr("action");
+//     var title = $("#edit-item").find("input[name='title']").val();
 
-    var content = $("#edit-item").find("textarea[name='content']").val();
-    var id = $("#edit-item").find(".edit-id").val();
+//     var content = $("#edit-item").find("textarea[name='content']").val();
+//     var id = $("#edit-item").find(".edit-id").val();
 
-    if(title != '' && content != ''){
-        $.ajax({
-            dataType: 'json',
-            type:'POST',
-            url: url + form_action,
-            data:{title:title, content:content,id:id}
-        }).done(function(data){
-            getPageData();
-            $(".modal").modal('hide');
-            toastr.success('Item Updated Successfully.', 'Success Alert', {timeOut: 5000});
-        });
-    }else{
-        alert('You are missing title or content.')
-    }
+//     if(title != '' && content != ''){
+//         $.ajax({
+//             dataType: 'json',
+//             type:'POST',
+//             url: url + form_action,
+//             data:{title:title, content:content,id:id}
+//         }).done(function(data){
+//             getPageData();
+//             $(".modal").modal('hide');
+//             toastr.success('Item Updated Successfully.', 'Success Alert', {timeOut: 5000});
+//         });
+//     }else{
+//         alert('You are missing title or content.')
+//     }
+// });
 
-});
 });

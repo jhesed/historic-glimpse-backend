@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 						<th>Featured Verse</th>
 						<th>Featured Quote</th>
 						<th>Type</th>
-						<th width="200px">Action</th>
+						<th width="100px">Action</th>
 					    </tr>
 					</thead>
 					<tbody>
@@ -158,7 +158,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 		</div>
 
 		<!-- Edit Item Modal -->
-		<div class="modal fade" id="edit-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<!-- 	<div class="modal fade" id="edit-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
@@ -170,7 +170,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 		      		<form data-toggle="validator" action="api/update.php" method="put">
 		      			<input type="hidden" name="id" class="edit-id">
 
-		      				
+		      	
 		      			<div class="form-group">
 							<label class="control-label" for="glimpse-date">Date:</label>
 							<input type="text" name="glimpse-date" class="form-control" data-error="Please enter date." required />
@@ -209,13 +209,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 		      				
 		      			<div class="form-group">
 							<label class="control-label" for="featured-quote">Featured Quote:</label>
-							<textarea name="featured-quote" class="form-control" data-error="Please enter title." required></textarea></div>
+							<textarea name="featured-quote" class="form-control" data-error="Please enter title." required></textarea>
 							<div class="help-block with-errors"></div>
 						</div>
 
 		      			<div class="form-group">
 							<label class="control-label" for="type">Type:</label>
-							<textarea name="type" class="form-control" data-error="Please enter glimpse type." required></textarea>
+							<input type="text" name="type" class="form-control" data-error="Please enter type." required />
 							<div class="help-block with-errors"></div>
 						</div>
 
@@ -229,7 +229,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 		      </div>
 		    </div>
 		  </div>
-		</div>
+		</div> -->
 
 	</div>
 </body>
