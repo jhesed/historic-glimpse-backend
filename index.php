@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.3.1/jquery.twbsPagination.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
 	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+	<script type="text/javascript" src="js/dropzone.js"></script>
     <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
 
 	<script type="text/javascript">
@@ -94,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 		      </div>
 
 		      <div class="modal-body">
-		      		<form data-toggle="validator" action="api/create.php" method="POST">
+		      		<form data-toggle="validator" action="api/create.php" method="POST" class="dropzone">
 
 		      				
 		      			<div class="form-group">
@@ -144,6 +145,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 							<input type="text" name="type" class="form-control" data-error="Please enter type." required />
 							<div class="help-block with-errors"></div>
 						</div>
+
+		      			<div class="form-group">
+							<label class="control-label" for="type">Images:</label>
+							<div class="fallback">
+						    	<input name="file" type="file" multiple />
+						  	</div>
+						  s</div>
 
 						<div class="form-group">
 							<button type="submit" class="btn crud-submit btn-success">Submit</button>
