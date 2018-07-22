@@ -1,18 +1,25 @@
 <?php
 
-require 'db_config.php';
+require "db_config.php";
 
-if (isset($_GET["title"])) { $page  = $_GET["title"]; } else { $title="2018-07-21"; };
+if (isset($_GET["title"])) { 
+	$title  = $_GET["title"]; 
+}
+else {
+	$data["data"] = null;
+	echo(json_encode(utf8ize($data)));
+	return;
+}
 
-  $sql = "SELECT * FROM glimpse WHERE title = '$title'"; 
+$sql = "SELECT * FROM glimpse WHERE title = "$title" order by type"; 
 
-  $result = $mysqli->query($sql);
-  $json = null;
-  while($row = $result->fetch_assoc()){
-     $json[] = $row;
-  }
+$result = $mysqli->query($sql);
+$json = null;
+while($row = $result->fetch_assoc()){
+ 	$json[] = $row;
+}
 
-  $data['data'] = $json;
+$data["data"] = $json;
 
 echo json_encode(utf8ize($data));
 
