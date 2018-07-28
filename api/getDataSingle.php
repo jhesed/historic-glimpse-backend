@@ -11,7 +11,7 @@ else {
 	return;
 }
 
-$sql = "SELECT * FROM glimpse WHERE title = "$title" order by type"; 
+$sql = "SELECT * FROM glimpse WHERE title = '$title' order by type"; 
 
 $result = $mysqli->query($sql);
 $json = null;

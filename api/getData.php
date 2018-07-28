@@ -16,15 +16,40 @@ else {
 
 $start_from = ($page-1) * $num_rec_per_page;
 
-$sql = "SELECT title, heading FROM glimpse WHERE glimpse_date like '%$date_range%' ORDER BY title desc LIMIT $start_from, $num_rec_per_page"; 
+$sql = "SELECT glimpse_date, heading, type FROM glimpse WHERE glimpse_date like '%$date_range%' ORDER BY glimpse_date DESC LIMIT $start_from, $num_rec_per_page"; 
 
 $result = $mysqli->query($sql);
 $json = null;
-while($row = $result->fetch_assoc()){
-    $json[] = $row;
+
+$last_glimpse_date = null;
+
+$reult_array = [];  // holder for result
+
+while($row = $result->fetch_assoc())
+{ 
+
+    $json["glimpse_date"] = $row["glimpse_date"];
+
+    if ($row["type"] == 0) {
+        $json["heading_world"] = $row["heading"];
+    }
+    else if ($row["type"] == 1) {
+        $json["heading_phil"] = $row["heading"];
+    }
+
+    // Update last glimpse date
+    if ($last_glimpse_date == $row["glimpse_date"]) {    
+        $result_array[] = $json;
+        $json = null;
+    }
+
+    $last_glimpse_date = $row["glimpse_date"];
 }
 
-$data["data"] = $json;
+// Append last index
+$result_array[] = $json;
+
+$data["data"] = $result_array;
 
 echo json_encode(utf8ize($data));
 
