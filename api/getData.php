@@ -47,7 +47,9 @@ while($row = $result->fetch_assoc())
 }
 
 // Append last index
-$result_array[] = $json;
+if ($json != null) {
+  $result_array[] = $json;
+}
 
 $data["data"] = $result_array;
 
