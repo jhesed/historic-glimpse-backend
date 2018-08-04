@@ -1,4 +1,5 @@
 <?php
+header("Cache-Control: max-age=2592000"); //30days (60sec * 60min * 24hours * 30days)
 
 require "db_config.php";
 

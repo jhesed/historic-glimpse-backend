@@ -1,4 +1,5 @@
 <?php
+header("Cache-Control: max-age=2592000"); //30days (60sec * 60min * 24hours * 30days)
 
 require "db_config.php";
 
@@ -16,7 +17,7 @@ else {
 
 $start_from = ($page-1) * $num_rec_per_page;
 
-$sql = "SELECT glimpse_date, heading, type FROM glimpse WHERE glimpse_date like '%$date_range%' ORDER BY glimpse_date DESC LIMIT $start_from, $num_rec_per_page"; 
+$sql = "SELECT glimpse_date, heading, type FROM glimpse WHERE glimpse_date like '%$date_range%' ORDER BY glimpse_date ASC LIMIT $start_from, $num_rec_per_page"; 
 
 $result = $mysqli->query($sql);
 $json = null;
