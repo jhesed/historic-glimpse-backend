@@ -23,6 +23,7 @@ while($row = $result->fetch_assoc()){
 $data["data"] = $json;
 
 echo json_encode(utf8ize($data));
+// echo json_encode($data);
 
 function utf8ize($d) {
     if (is_array($d)) {
