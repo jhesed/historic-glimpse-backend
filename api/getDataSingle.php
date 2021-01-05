@@ -12,12 +12,24 @@ else {
 	return;
 }
 
+// Attempt to load exact date
 $sql = "SELECT * FROM glimpse WHERE title = '$title' order by type"; 
 
 $result = $mysqli->query($sql);
 $json = null;
 while($row = $result->fetch_assoc()){
  	$json[] = $row;
+}
+
+// If empty, load latest instead
+if (is_null($json)) {
+    $sql = "SELECT * FROM glimpse order by title desc, type"; 
+
+    $result = $mysqli->query($sql);
+    $json = null;
+    while($row = $result->fetch_assoc()){
+        $json[] = $row;
+    }
 }
 
 $data["data"] = $json;
@@ -35,5 +47,6 @@ function utf8ize($d) {
     }
     return $d;
 }
+exit();
 
 ?>

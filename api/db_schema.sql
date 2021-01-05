@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS `glimpse` (
   `glimpse_date` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `heading` text COLLATE utf8_unicode_ci NOT NULL,
   `content` text COLLATE utf8_unicode_ci NOT NULL,
+  `transition` text COLLATE utf8_unicode_ci NOT NULL,
   `prayer_focus` text COLLATE utf8_unicode_ci NOT NULL,
   `featured_verse` text COLLATE utf8_unicode_ci NOT NULL,
   `featured_quote` text COLLATE utf8_unicode_ci NOT NULL,

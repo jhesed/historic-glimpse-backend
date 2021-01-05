@@ -68,5 +68,6 @@ function utf8ize($d) {
     }
     return $d;
 }
+exit();
 
 ?>
